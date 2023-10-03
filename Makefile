@@ -5,7 +5,7 @@ LIB_DIR := ./lib
 SRC_DIRS := ./src
 INC_DIRS := ./include
 
-EXTERNAL_LIBS := wayland-client
+EXTERNAL_LIBS := 
 
 
 CFLAGS += -std=c17 -Wall -Werror -pedantic-errors
