@@ -5,6 +5,8 @@ LIB_DIR := ./lib
 SRC_DIRS := ./src
 INC_DIRS := ./include
 
+EXTERNAL_LIBS := wayland-client
+
 
 CFLAGS += -std=c17 -Wall -Werror -pedantic-errors
 
@@ -26,7 +28,7 @@ DEPS := $(OBJS:.o=.d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 LDFLAGS += -L$(LIB_DIR)
-LIBS := $(addprefix -l:,$(notdir $(wildcard $(LIB_DIR)/*.a) $(wildcard $(LIB_DIR)/*.so)))
+LIBS := $(addprefix -l:,$(notdir $(wildcard $(LIB_DIR)/*.a) $(wildcard $(LIB_DIR)/*.so))) $(addprefix -l,$(EXTERNAL_LIBS))
 
 # The -MMD and -MP flags together generate Makefiles for us!
 # These files will have .d instead of .o as the output.
